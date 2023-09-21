@@ -17,6 +17,27 @@ let typed = new Typed('.auto-input',{
     loop: true,
 })
 
+//Active Link State on Scroll
+
+//Get All Links
+let navLinks = document.querySelectorAll('nav ul li a')
+
+//Get All Sections
+let sections = document.querySelectorAll('section')
+
+window.addEventListener('scroll',function(){
+    const scrollPos = window.scrollY + 20
+    sections.forEach(section => {
+        if(scrollPos > section.offsetTop && scrollPos < (section.offsetTop + section.offsetHeight)){
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(section.getAttribute('id') === link.getAttribute('href').substring(1)) {
+                    link.classList.add('active')
+                }
+            })
+        }
+    })
+})
 
 var sheetName = 'Sheet1'
 		var scriptProp = PropertiesService.getScriptProperties()
@@ -61,7 +82,7 @@ var sheetName = 'Sheet1'
 
 
 
-const scriptURL = 'https://script.google.com/macros/s/AKfycbxkgWotCMyvIKoT9aGtPCndZdHtHrq8i972t9CKAVjO6xC7T0I/exec'
+const scriptURL = 'https://script.google.com/macros/s/AKfycbw5e7bOVcFk3RuZwgLGc4cSBoaZg7vzSlp7UhahxclxlwZpTx9ShPSuPmHBzBKGL0Sfmg/exec'
             const form = document.forms['google-sheet']
           
             form.addEventListener('submit', e => {
