@@ -550,4 +550,20 @@ main {
   padding:15px 20px 15px;
   border-bottom:5px solid #F96700;
 }
+
+/*Mobile View*/
+@media only screen and (max-width: 800px){
+    #login-main-wrapper{
+        padding: 50px;
+    }
+    #login-main-wrapper .thankyou-wrapper{
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+@media only screen and (max-width: 500px){
+    #login-main-wrapper{
+        padding: 50px 10px;
+    }
+}
 /* Thank You Page */
